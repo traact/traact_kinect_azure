@@ -36,6 +36,8 @@
 
 #include <tbb/task_group.h>
 
+
+
 std::string traact::component::vision::KinectAzureComponent::GetModuleKey() {
   return "KinectAzureDevice_"+device_id_;
 }

@@ -41,6 +41,7 @@
 
 namespace traact::component::vision {
 
+	
 class KinectAzureColorOutput : public KinectAzureComponent {
  public:
   explicit KinectAzureColorOutput(const std::string &name) : KinectAzureComponent(name) {

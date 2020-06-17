@@ -40,6 +40,7 @@
 
 namespace traact::vision {
 
+	
 
 class KinectAzurePlugin : public traact::facade::Plugin {
  public:
@@ -56,13 +57,14 @@ class KinectAzurePlugin : public traact::facade::Plugin {
   pattern::Pattern::Ptr instantiatePattern(const std::string &pattern_name) override {
     if (pattern_name == "KinectAzureColorOutput")
       return component::vision::KinectAzureColorOutput::getPattern();
-    if (pattern_name == "KinectAzureDepthOutput")
+    
+	if (pattern_name == "KinectAzureDepthOutput")
       return component::vision::KinectAzureDepthOutput::getPattern();
     if (pattern_name == "KinectAzureIROutput")
       return component::vision::KinectAzureIROutput::getPattern();
     if (pattern_name == "KinectAzureBodyOutput")
       return component::vision::KinectAzureBodyOutput::getPattern();
-
+	  
 
 
     return nullptr;
@@ -72,18 +74,23 @@ class KinectAzurePlugin : public traact::facade::Plugin {
 
     if (pattern_name == "KinectAzureColorOutput")
       return std::make_shared<component::vision::KinectAzureColorOutput>(new_component_name);
+	
     if (pattern_name == "KinectAzureDepthOutput")
       return std::make_shared<component::vision::KinectAzureDepthOutput>(new_component_name);
     if (pattern_name == "KinectAzureIROutput")
       return std::make_shared<component::vision::KinectAzureIROutput>(new_component_name);
     if (pattern_name == "KinectAzureBodyOutput")
       return std::make_shared<component::vision::KinectAzureBodyOutput>(new_component_name);
-
+	  
     return nullptr;
   }
+
+  RTTR_ENABLE(traact::facade::Plugin)
 };
 
 }
+
+
 
 // It is not possible to place the macro multiple times in one cpp file. When you compile your plugin with the gcc toolchain,
 // make sure you use the compiler option: -fno-gnu-unique. otherwise the unregistration will not work properly.
@@ -93,6 +100,6 @@ RTTR_PLUGIN_REGISTRATION // remark the different registration macro!
   using namespace rttr;
   registration::class_<traact::vision::KinectAzurePlugin>("KinectAzurePlugin").constructor<>()
       (
-          policy::ctor::as_std_shared_ptr
+          //policy::ctor::as_std_shared_ptr
       );
 }

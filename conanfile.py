@@ -62,6 +62,7 @@ class Traact(ConanFile):
 
     def configure(self):
         self.options['traact_vision'].shared = self.options.shared        
+        self.options['traact_spatial'].shared = self.options.shared
 
     def build(self):
         cmake = self._configure_cmake()
@@ -72,5 +73,5 @@ class Traact(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["traact_kinect_azure"]
+        self.cpp_info.libs = []#["traact_kinect_azure"]
         #self.cpp_info.libs = tools.collect_libs(self)
