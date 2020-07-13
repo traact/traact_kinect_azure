@@ -37,6 +37,7 @@
 #include "KinectAzureDepthOutput.h"
 #include "KinectAzureIROutput.h"
 #include "KinectAzureBodyOutput.h"
+#include "KinectAzurePlayer.h"
 
 namespace traact::vision {
 
@@ -50,6 +51,7 @@ class KinectAzurePlugin : public traact::facade::Plugin {
     pattern_names.emplace_back("KinectAzureDepthOutput");
     pattern_names.emplace_back("KinectAzureIROutput");
     pattern_names.emplace_back("KinectAzureBodyOutput");
+    pattern_names.emplace_back("KinectAzurePlayer");
 
 
 
@@ -64,6 +66,8 @@ class KinectAzurePlugin : public traact::facade::Plugin {
       return component::vision::KinectAzureIROutput::getPattern();
     if (pattern_name == "KinectAzureBodyOutput")
       return component::vision::KinectAzureBodyOutput::getPattern();
+    if (pattern_name == "KinectAzurePlayer")
+      return component::vision::KinectAzurePlayer::getPattern();
 	  
 
 
@@ -81,6 +85,8 @@ class KinectAzurePlugin : public traact::facade::Plugin {
       return std::make_shared<component::vision::KinectAzureIROutput>(new_component_name);
     if (pattern_name == "KinectAzureBodyOutput")
       return std::make_shared<component::vision::KinectAzureBodyOutput>(new_component_name);
+    if (pattern_name == "KinectAzurePlayer")
+      return std::make_shared<component::vision::KinectAzurePlayer>(new_component_name);
 	  
     return nullptr;
   }

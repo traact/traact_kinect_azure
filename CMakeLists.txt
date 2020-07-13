@@ -14,7 +14,7 @@ set(PLUGIN_SOURCES src/KinectAzurePlugin.cpp
         src/KinectAzureColorOutput.h
         src/KinectAzureDepthOutput.h
         src/KinectAzureBodyOutput.h
-        src/KinectAzureStaticData.h src/KinectAzureIROutput.h)
+        src/KinectAzureStaticData.h src/KinectAzureIROutput.h src/KinectAzurePlayer.cpp src/KinectAzurePlayer.h)
 
 
 # conan is required hard, library name, version and description are configured from conan

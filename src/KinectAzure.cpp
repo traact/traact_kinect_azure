@@ -97,8 +97,9 @@ bool traact::component::vision::KinectAzureModule::start(traact::component::Modu
   }
 
   SPDLOG_DEBUG("Starting K4A Camera");
+  running_ = true;
   thread_ = std::make_shared<std::thread>([this]{
-    running_ = true;
+
     threadLoop();
   });
   return true;
